@@ -23,7 +23,8 @@ cimport quantlib.time._date as _date
 from quantlib.time._daycounter cimport DayCounter as QlDayCounter
 from quantlib.time._schedule cimport Schedule as QlSchedule
 from quantlib.time.calendar cimport Calendar
-from quantlib.time.date cimport Date, date_from_qldate
+from quantlib.time.date cimport Date
+from quantlib.time.date cimport date_from_qldate
 from quantlib.time.schedule cimport Schedule
 from quantlib.time.daycounter cimport DayCounter
 from quantlib.time.calendar import Following
