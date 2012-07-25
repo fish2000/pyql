@@ -1,4 +1,3 @@
-
 from setuptools import setup, find_packages
 # Warning : do not import the distutils extension before setuptools
 # It does break the cythonize function calls
@@ -18,8 +17,9 @@ SUPPORT_CODE_INCLUDE = './cpp_layer'
 # FIXME: would be good to be able to customize the path with envrironment
 # variables in place of hardcoded paths ...
 if sys.platform == 'darwin':
-    INCLUDE_DIRS = ['/opt/local/include', '.', SUPPORT_CODE_INCLUDE]
-    LIBRARY_DIRS = ["/opt/local/lib"]
+    INCLUDE_DIRS = ['/usr/local/include', '.', SUPPORT_CODE_INCLUDE]
+    LIBRARY_DIRS = ["/usr/local/lib"]
+
 elif sys.platform == 'win32':
     INCLUDE_DIRS = [
         r'E:\tmp\QuantLib-1.1',  # QuantLib headers
@@ -32,13 +32,14 @@ elif sys.platform == 'win32':
         r'E:\tmp\boost_1_46_1\lib'
     ]
     QL_LIBRARY = 'QuantLib'
+
 elif sys.platform == 'linux2':
     # good for Debian / ubuntu 10.04 (with QL .99 installed by default)
     # INCLUDE_DIRS = ['/usr/local/include', '/usr/include', '.']
     # LIBRARY_DIRS = ['/usr/local/lib', '/usr/lib', ]
     # custom install of QuantLib 1.1
-    INCLUDE_DIRS = ['/opt/QuantLib-1.1', '.', SUPPORT_CODE_INCLUDE]
-    LIBRARY_DIRS = ['/opt/QuantLib-1.1/lib',]
+    INCLUDE_DIRS = ['/usr/QuantLib-1.1', '.', SUPPORT_CODE_INCLUDE]
+    LIBRARY_DIRS = ['/usr/QuantLib-1.1/lib',]
 
 def get_define_macros():
     defines = [ ('HAVE_CONFIG_H', None)]
